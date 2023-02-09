@@ -159,10 +159,11 @@ public class App{
                             iconRefresh();
 
                             if(isEngineAllowedToPlay){
-                                int[] bestMove = Engine.findBestMove(b, false, 3);
+                                int[] bestMove = Engine.findBestMove(b, false, 2);
                                 System.out.println("The best move is: "+bestMove[0]+" "+bestMove[1]+" "+bestMove[2]+" "+bestMove[3]);
                                 b.move(bestMove[0], bestMove[1], bestMove[2], bestMove[3], false);
                                 System.out.println(Engine.evaluateChessboard(b));
+                                b.move(7, 4, 7, 6, true);
                             }
 
 

@@ -25,7 +25,7 @@ public class King extends Piece {
             //castle
             //rook on the left
             for(int i=fromY-1; i>=0; i--){
-                if(atBoard.getBoard()[fromX][i] != null && atBoard.getBoard()[fromX][i].getTypeID() == 2 && atBoard.pieceAtIsWhite(fromX, i)){
+                if(atBoard.getBoard()[fromX][i] != null && atBoard.getBoard()[fromX][i].getTypeID() == 2 && atBoard.pieceAtIsWhite(fromX, i) == isWhite){
                     tempRook = (Rook)atBoard.getBoard()[fromX][i];
                     if(!tempRook.getHasMoved()){
                         for(int j=i+1; j<fromY; j++){
@@ -57,7 +57,7 @@ public class King extends Piece {
                 Rook tempRook = null;
             //rook on the right
             for(int i=fromY+1; i<8; i++){
-                if(atBoard.getBoard()[fromX][i] != null && atBoard.getBoard()[fromX][i].getTypeID() == 2 && atBoard.pieceAtIsWhite(fromX, i)){
+                if(atBoard.getBoard()[fromX][i] != null && atBoard.getBoard()[fromX][i].getTypeID() == 2 && atBoard.pieceAtIsWhite(fromX, i) == isWhite){
                     tempRook = (Rook)atBoard.getBoard()[fromX][i];
                     if(!tempRook.getHasMoved()){
                         for(int j=i-1; j>fromY; j--){

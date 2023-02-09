@@ -86,6 +86,7 @@ public class Engine {
                     for(int k=0; k<8; k++){
                         for(int l=0; l<8; l++){
                             if(chessboardCopy.isMovePossible(i, j, k, l)){
+
                                 chessboardCopy.move(i, j, k, l, true);
                                 double result = minmax(chessboardCopy, false, depth-1);
                                 if(isWhite && result > bestResult){
@@ -108,6 +109,19 @@ public class Engine {
 
         double whiteEvaluation = 0.0;
         double blackEvaluation = 0.0;
+
+
+        if(chessboard.checkIfEnd()){
+            if(chessboard.checkIfCheck(true)){
+                return -100;
+            }
+            else if(chessboard.checkIfCheck(false)){
+                return 100;
+            }
+            else{
+                return 0;
+            }
+        }
 
         for(int i=0; i<8; i++){
             for(int j=0; j<8; j++){
@@ -142,6 +156,7 @@ public class Engine {
                 }
             }
         }
+
         whiteEvaluation += 0.1 * numberOfPossibleMoves(chessboard, true);
         blackEvaluation += 0.1 * numberOfPossibleMoves(chessboard, false);
         //System.out.println("White evaluation: "+whiteEvaluation);
